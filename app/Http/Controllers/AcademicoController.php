@@ -20,6 +20,32 @@ class AcademicoController extends Controller
         return response()->json(['ok' => true, 'data' => $data]);
     }
 
+    public function calificaciones(Request $request, SiiApiService $sii)
+    {
+        return $this->pasar($request, $sii, '/movil/estudiante/calificaciones');
+    }
+
+    public function kardex(Request $request, SiiApiService $sii)
+    {
+        return $this->pasar($request, $sii, '/movil/estudiante/kardex');
+    }
+
+    public function horarios(Request $request, SiiApiService $sii)
+    {
+        return $this->pasar($request, $sii, '/movil/estudiante/horarios');
+    }
+    
+
+    // Pide el endpoint al SII y entrega sus datos sin modificarlos
+    private function pasar(Request $request, SiiApiService $sii, string $path)
+    {
+        $data = $this->consultar($request, $sii, $path);
+
+        return $data instanceof JsonResponse
+            ? $data
+            : response()->json(['ok' => true, 'data' => $data]);
+    }
+
     // Pide un endpoint al SII con el JWT (guardado) y traduce los errores
     private function consultar(Request $request, SiiApiService $sii, string $path)
     {

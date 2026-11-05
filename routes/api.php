@@ -11,6 +11,9 @@ Route::middleware('sii.token')->group(function () {
     Route::get('/auth/me', [AuthController::class, 'me']);
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     Route::get('/academico/perfil', [AcademicoController::class, 'perfil']);
+    Route::get('/academico/calificaciones', [AcademicoController::class, 'calificaciones']);
+    Route::get('/academico/kardex', [AcademicoController::class, 'kardex']);
+    Route::get('/academico/horarios', [AcademicoController::class, 'horarios']);
 });
 
 
