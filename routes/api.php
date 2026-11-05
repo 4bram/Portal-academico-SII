@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AcademicoController;
+use App\Http\Controllers\ProfesorController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -14,6 +15,8 @@ Route::middleware('sii.token')->group(function () {
     Route::get('/academico/calificaciones', [AcademicoController::class, 'calificaciones']);
     Route::get('/academico/kardex', [AcademicoController::class, 'kardex']);
     Route::get('/academico/horarios', [AcademicoController::class, 'horarios']);
+    Route::get('/profesores', [ProfesorController::class, 'index']);
+    Route::get('/profesores/{id}', [ProfesorController::class, 'show']);
 });
 
 
