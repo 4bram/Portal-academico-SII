@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AcademicoController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\AdminAuthController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -19,6 +20,11 @@ Route::middleware('sii.token')->group(function () {
     Route::get('/profesores/{id}', [ProfesorController::class, 'show']);
 });
 
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->middleware('throttle:5,1');
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/admin/me', [AdminAuthController::class, 'me']);
+});
 
 
 Route::get('/user', function (Request $request) {
