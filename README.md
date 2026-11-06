@@ -1,5 +1,6 @@
 # Portal Académico — Backend (Laravel 12 + PostgreSQL)
-
+- Rivera Morales Hugo Baruch
+- Silva Mendez Abraham
 Backend del **Examen 3: Consumo de API y Desarrollo de Interfaz Web** (SII ITC).
 
 Este repositorio es el **intermediario seguro** entre el frontend (React + Vite) y la API institucional del SII del ITC. Además guarda en su propia base de datos (PostgreSQL en Supabase) el **directorio de profesores**, que es la funcionalidad adicional del equipo, con su propio backend de administración.
