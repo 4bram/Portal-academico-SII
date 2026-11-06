@@ -7,6 +7,9 @@ use App\Http\Controllers\AcademicoController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminProfesorController;
+use App\Http\Controllers\AdminHorarioController;
+use App\Http\Controllers\AdminMateriaController;
+
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -29,6 +32,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/admin/profesores', [AdminProfesorController::class, 'store']);
     Route::put('/admin/profesores/{profesor}', [AdminProfesorController::class, 'update']);
     Route::delete('/admin/profesores/{profesor}', [AdminProfesorController::class, 'destroy']);
+    Route::post('/admin/profesores/{profesor}/horarios', [AdminHorarioController::class, 'store']);
+    Route::put('/admin/horarios/{horario}', [AdminHorarioController::class, 'update']);
+    Route::delete('/admin/horarios/{horario}', [AdminHorarioController::class, 'destroy']);
+
+    Route::post('/admin/profesores/{profesor}/materias', [AdminMateriaController::class, 'store']);
+    Route::put('/admin/materias/{materia}', [AdminMateriaController::class, 'update']);
+    Route::delete('/admin/materias/{materia}', [AdminMateriaController::class, 'destroy']);
 });
 
 
