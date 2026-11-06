@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AcademicoController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminProfesorController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -24,6 +25,10 @@ Route::post('/admin/login', [AdminAuthController::class, 'login'])->middleware('
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/me', [AdminAuthController::class, 'me']);
+
+    Route::post('/admin/profesores', [AdminProfesorController::class, 'store']);
+    Route::put('/admin/profesores/{profesor}', [AdminProfesorController::class, 'update']);
+    Route::delete('/admin/profesores/{profesor}', [AdminProfesorController::class, 'destroy']);
 });
 
 
