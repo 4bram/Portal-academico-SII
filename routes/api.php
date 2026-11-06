@@ -29,6 +29,9 @@ Route::post('/admin/login', [AdminAuthController::class, 'login'])->middleware('
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/me', [AdminAuthController::class, 'me']);
 
+     Route::get('/admin/profesores', [ProfesorController::class, 'index']);
+    Route::get('/admin/profesores/{id}', [ProfesorController::class, 'show']);
+
     Route::post('/admin/profesores', [AdminProfesorController::class, 'store']);
     Route::put('/admin/profesores/{profesor}', [AdminProfesorController::class, 'update']);
     Route::delete('/admin/profesores/{profesor}', [AdminProfesorController::class, 'destroy']);
