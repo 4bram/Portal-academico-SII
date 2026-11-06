@@ -872,4 +872,14 @@ Dockerfile, docker/start.sh, .dockerignore  # despliegue en Render
 
 ## 16. Capturas de pantalla
 
-_Pendiente: se agregarán cuando el sistema esté integrado y desplegado._
+1. Lista de los endpoints a nivel local:
+<img width="1143" height="836" alt="image" src="https://github.com/user-attachments/assets/fc8e1038-628f-43b7-87f5-398229c94120" />
+2. Capturas de los logs:
+<img width="1480" height="409" alt="image" src="https://github.com/user-attachments/assets/b4de918f-5e80-40df-afbd-cc8d60e1e250" />
+3. Base de datos de supabase:
+<img width="1904" height="858" alt="image" src="https://github.com/user-attachments/assets/3d327ebc-574a-4e81-9c47-ad6188d5a79c" />
+4. Curls en donde los numeros 200 indican una respuesta correctas y representan algunos endpoints:
+<img width="1106" height="416" alt="image" src="https://github.com/user-attachments/assets/ac8414a5-13c5-40e0-aab0-53c12d2dc508" />
+<img width="1141" height="465" alt="image" src="https://github.com/user-attachments/assets/540e93c0-4bc0-4611-844b-86d41a3d6c09" />
+5. Ejemplo de perfil ya con interfaz:
+<img width="1919" height="1077" alt="image" src="https://github.com/user-attachments/assets/23b7f26d-e3cc-4d7e-a4b0-137529047f1b" />
