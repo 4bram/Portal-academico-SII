@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminProfesorController;
 use App\Http\Controllers\AdminHorarioController;
 use App\Http\Controllers\AdminMateriaController;
+use Illuminate\Support\Facades\DB;
 
 
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -48,3 +49,25 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+
+Route::get('/diag', function () {
+    $out = [
+        'app_key_set' => (bool) config('app.key'),
+        'app_debug' => config('app.debug'),
+        'env_APP_DEBUG' => getenv('APP_DEBUG'),
+        'cache_store' => config('cache.default'),
+        'db_host_pooler' => str_contains((string) config('database.connections.pgsql.host'), 'pooler.supabase.com'),
+        'db_user_con_punto' => str_starts_with((string) config('database.connections.pgsql.username'), 'postgres.'),
+        'db_password_set' => (bool) config('database.connections.pgsql.password'),
+    ];
+
+    try {
+        DB::connection()->getPdo();
+        $out['db'] = 'ok';
+    } catch (\Throwable $e) {
+        $out['db'] = class_basename($e) . ': ' . substr($e->getMessage(), 0, 160);
+    }
+
+    return $out;
+});
